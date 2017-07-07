@@ -1,0 +1,58 @@
+<html ng-app="listaTelefonica">
+<head>
+	<title> Hello World</title>
+	<script src="angular/angular.js"></script>
+	<script>
+		angular.module("listaTelefonica", []);
+		angular.module("listaTelefonica").controller("listaTelefonicaController", function ($scope){
+			$scope.app = "Hello World";
+			$scope.contatos = [
+				{nome: "Pedro", telefone: "1122-3344"},
+				{nome: "Anna", telefone: "1122-3344"},
+				{nome: "Maria", telefone: "1122-3344"}
+			];
+			$scope.adicionarContato = function (contato){
+				$scope.contatos.push(contato);
+				delete $scope.contato;
+			};
+			$scope.habilita = function (contato){
+				for (var i = 0; i <= 100000; i++)
+				{
+					
+				}
+			
+				if (contato != null)
+					return true;
+				
+				return false;					
+			};
+		});
+	</script>
+</head>
+
+<body ng-controller="listaTelefonicaController">
+	<div >
+		<h4 ng-bind="app"> </h4>
+		
+		<table>
+			<tr>
+				<th> Nome </th>
+				<th> Telefone </th>
+			</tr>			
+			<tr ng-repeat="contato in contatos">
+				<td> {{contato.nome}} </td>
+				<td> {{contato.telefone}} </td>
+			</tr>
+		</table>
+		
+		<hr />
+		<input type="text" ng-model="contato.nome" />
+		<input type="text" ng-model="contato.telefone"/>		
+		<button ng-click="adicionarContato(contato)" ng-show="habilita(contato)"> Adicionar Contato </button>
+		{{contato}}		
+
+	</div>
+
+</body>
+
+</html>
